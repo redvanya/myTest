@@ -15,7 +15,7 @@ void main() {
 	//Node* node2 = new Node;
 
 	shared_ptr<Node> node1(new Node);	// 참조계수 1
-	shared_ptr<Node> node2(new Node);
+	shared_ptr<Node> node2(new Node);	// shared_ptr 내부에서 weak_ptr을 쓸 수 있는 것은 복사생성자로 다른 타입을 받을 수 있게 되어 있기 때문(150521/6.cpp)
 
 	node1->next = node2;	// 소멸자가 안불림. 메모리 누수현상
 	node2->next = node1;	// 두개의 객체의 참조 계수가 2 -> 1 : 상호 참조의 문제
